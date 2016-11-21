@@ -740,7 +740,7 @@ fr:
           username_label: Nom utilisateur
           username_note: Nom qui doit apparaître près de vos posts
         success:
-          back_to_index: Je comprends; Aller à la page principale
+          back_to_index: Je comprends. Retourner à la page principale
           instructions_1_html: Veuillez <b>vérifier votre email</b> - nous vous avons
             envoyé </b> un lien pour confirmer votre compte</b>.
           instructions_2_html: Une fois confirmé, vous pouvez commencer à participer
@@ -1154,7 +1154,7 @@ fr:
       sign_in: S'enregistrer avec Twitter
       sign_up: S'enregistrer avec Twitter
   pages:
-    census_terms: "Pour confirmer votre compte, vous devez avoir plus de 16 ans et
+    census_terms: Pour confirmer votre compte, vous devez avoir plus de 16 ans et
       résider à Madrid. Après avoir rempli les informations déjà demandées, la Direction
       Générale de la Participation Civile vérifiera dans deux fichiers, le Recensement
       municipal des Habitants (dont la responsabilité dépend de la Direction Générale
@@ -1164,7 +1164,7 @@ fr:
       de vos informations, ainsi que les méthodes de contact des fichiers mentionnés.
       Les informations fournies seront acquises et collectées par la Direction Générale
       de la Participation Civile dans le fichier Gestion des Activités participatives\"
-      mentionnées dans les conditions d'utilisation de ce portail."
+      mentionnées dans les conditions d'utilisation de ce portail.
     conditions: Conditions d'utilisation
     general_terms: Conditions d'utilisation
     more_information:
@@ -1540,8 +1540,8 @@ fr:
           spanish_id: CNI
         error_not_allowed_age: Vous devez avoir plus de 16 ans
         error_not_allowed_postal_code: Afin de pouvoir vérifier votre compte, vous
-          devez être enregistrer par la Municipalité de Madrid.
-        error_verifying_census: Il a été impossible pour le recensement de Madrid
+          devez être enregistrer par la Municipalité de Madrid ( TODO ).
+        error_verifying_census: ( TODO ) Il a été impossible pour le recensement de Madrid
           de vérifier vos informations. Merci de confirmer que vos informations sont
           correctes en appelant 010 (ou 915298210) ou en visitant n'importe quel %{offices}.
         error_verifying_census_offices: 26 bureaux du citoyen
@@ -1648,7 +1648,8 @@ fr:
       user_permission_info: Avec votre compte, vous pouvez...
       user_permission_proposal: Créer des propositions
       user_permission_support_proposal: Soutenir des propositions
-      user_permission_verify: Réaliser toutes ces actions %{verify}.
+      user_permission_verify: Réaliser toutes ces actions.
       user_permission_verify_info: "* Uniquement pour les utilisateurs inscrits sur
         le recensement de Madrid"
+      user_permission_verify_my_account: Verifier mon compte
       user_permission_votes: Participer au vote final
