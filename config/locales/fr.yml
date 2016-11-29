@@ -250,7 +250,7 @@ fr:
 
 
 
-proposals:
+  proposals:
     create:
       form:
         submit_button: Créer une proposition
