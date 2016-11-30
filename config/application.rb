@@ -19,9 +19,9 @@ module Consul
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :es
+    config.i18n.default_locale = :fr
 
-    config.i18n.available_locales = [:en, :es, :fr]
+    config.i18n.available_locales = [:fr, :en, :es]
 
     # Add the new directories to the locales load path
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
@@ -33,7 +33,7 @@ module Consul
 
     # Add lib to the autoload path
     config.autoload_paths << Rails.root.join('lib')
-    config.time_zone = 'Madrid'
+    config.time_zone = 'Paris'
     config.active_job.queue_adapter = :delayed_job
 
     # Consul specific custom overrides
