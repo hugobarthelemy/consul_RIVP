@@ -1,6 +1,6 @@
 fr:
   settings:
-    comments_body_max_length: "Taille maximale du champ de commentaire"
+    comments_body_max_length: 200 # "Taille maximale du champ de commentaire"
     official_level_1_name: "Officiel de niveau 1"
     official_level_2_name: "Officiel de niveau 2"
     official_level_3_name: "Officiel de niveau 3"
