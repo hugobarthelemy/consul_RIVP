@@ -1,6 +1,9 @@
 admin = User.create!(username: 'admin', email: 'admin@consul.dev', password: '12345678', password_confirmation: '12345678', confirmed_at: Time.now, terms_of_service: "1")
 admin.create_administrator
 
+Setting.create(key: 'comments_body_max_length', value: '1000') # nb commentaires par proposition
+Setting.create(key: 'org_name', value: 'RIVP') # personalisation
+
 def create_user(email, username = Faker::Name.name)
   pwd = '12345678'
   puts "    #{username}"
@@ -16,6 +19,7 @@ User.create!(username: 'alain',
   confirmed_phone: Faker::PhoneNumber.phone_number,
   document_type: "1",
   verified_at: Time.now,
+  terms_of_service: "1",
   document_number: "1")
 
 # Valentin
@@ -27,6 +31,7 @@ User.create!(username: 'valentin',
   confirmed_phone: Faker::PhoneNumber.phone_number,
   document_type: "1",
   verified_at: Time.now,
+  terms_of_service: "1",
   document_number: "2")
 
 # Olivier
@@ -38,6 +43,7 @@ User.create!(username: 'olivier',
   confirmed_phone: Faker::PhoneNumber.phone_number,
   document_type: "1",
   verified_at: Time.now,
+  terms_of_service: "1",
   document_number: "3")
 
 # Hugo
@@ -49,6 +55,7 @@ User.create!(username: 'hugo',
   confirmed_phone: Faker::PhoneNumber.phone_number,
   document_type: "1",
   verified_at: Time.now,
+  terms_of_service: "1",
   document_number: "4")
 
 

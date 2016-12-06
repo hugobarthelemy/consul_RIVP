@@ -26,7 +26,7 @@ fr:
       user_permission_support_proposal: Soutenir des propositions
       user_permission_title: Participation
       user_permission_verify: Pour pouvoir réaliser toutes ces actions, merci de vérifier votre compte
-      user_permission_verify_info: "* Uniquement pour les utilisateurs inscrits sur le Recensement de Madrid"
+      user_permission_verify_info: "* Uniquement pour les utilisateurs inscrits sur le Recensement de la RIVP"
       user_permission_votes: Participer au vote final
       verified_account: Compte vérifié
       verify_my_account: Vérifier mon compte
@@ -1635,16 +1635,13 @@ fr:
           residence_card: Carte de résident
           spanish_id: CNI
         error_not_allowed_age: Vous devez avoir plus de 16 ans
-        error_not_allowed_postal_code: Afin de pouvoir vérifier votre compte, vous
-          devez être enregistrer par la Municipalité de Madrid ( TODO ).
-        error_verifying_census: ( TODO ) Il a été impossible pour le recensement de Madrid
-          de vérifier vos informations. Merci de confirmer que vos informations sont
-          correctes en appelant 010 (ou 915298210) ou en visitant n'importe quel %{offices}.
+        error_not_allowed_postal_code: Afin de pouvoir vérifier votre compte, vous devez être enregistrer par la Municipalité de Madrid ( TODO ).
+        error_verifying_census: ( TODO ) Il a été impossible pour le recensement de Madrid de vérifier vos informations. Merci de confirmer que vos informations sont correctes en appelant 010 (ou 915298210) ou en visitant n'importe quel %{offices}.
         error_verifying_census_offices: 26 bureaux du citoyen
+        error_verifying_census_offices_url: http://offices.consul
         form_errors: Empêche la vérification de votre résidence
         postal_code: Code postal
-        postal_code_note: Afin de vérifier votre compte, vous devez être inscrit dans
-          le récensement de Madrid
+        postal_code_note: Afin de vérifier votre compte, vous devez être inscrit dans le récensement de la RIVP
         terms: Les conditions d'utilisation et d'accès
         title: Vérifier la résidence
         verify_residence: Vérifier la résidence
