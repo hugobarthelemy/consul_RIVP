@@ -13,11 +13,17 @@ Consol is a open source participatory budget platform
 # How to configurate
 ## Connection
 ### email
+
 ### Twitter connect
+
 ### Facebook connect
+
 ## verification
+
 ### postal code
+
 ### census API
+
 ## levels of user
 
 | authorisation                 | simple user   | level 1 | level 2 | level 3 | level 4 | level 5 | admin |                                
@@ -31,7 +37,7 @@ Consol is a open source participatory budget platform
 
 
 ## configurate vote / comment / ratio
-## 
+
 # How to deploy
 # How you use
 # How you manage
