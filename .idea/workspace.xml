@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ecb8751-2607-49cf-b7e2-a7840516c03d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/custom/verification/residence.rb" afterPath="$PROJECT_DIR$/app/models/custom/verification/residence.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/fr.yml" afterPath="$PROJECT_DIR$/config/locales/fr.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/verification.fr.yml" afterPath="$PROJECT_DIR$/config/locales/verification.fr.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/dev_seed_rivp.rb" afterPath="$PROJECT_DIR$/db/dev_seed_rivp.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/locales/fr.yaml" afterPath="$PROJECT_DIR$/doc/locales/fr.yaml" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -128,7 +123,7 @@
           <file leaf-file-name="dev_seeds.rb" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/db/dev_seeds.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
+                <state relative-caret-position="495">
                   <caret line="33" column="62" lean-forward="false" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
                   <folding />
                 </state>
@@ -166,7 +161,7 @@
             <entry file="file://$PROJECT_DIR$/config/locales/verification.fr.yml">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="420">
-                  <caret line="73" column="1" lean-forward="false" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
+                  <caret line="73" column="8" lean-forward="false" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
                   <folding />
                 </state>
               </provider>
@@ -367,7 +362,7 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/hugobarthelemy/code/hugobarthelemy/consul/doc/locales/fr.yaml&#10;fr.&#9;FILE&#9;file:///Users/hugobarthelemy/code/hugobarthelemy/consul/doc/locales/fr.yaml&#10;Changer mes autorisations&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="verification.fr.yml&#9;FILE&#9;file:///Users/hugobarthelemy/code/hugobarthelemy/consul/config/locales/verification.fr.yml&#10;fr.&#9;FILE&#9;file:///Users/hugobarthelemy/code/hugobarthelemy/consul/doc/locales/fr.yaml&#10;Changer mes autorisations&#9;null&#9;null" />
   </component>
   <component name="RunManager" selected="IRB console.Rails console: consul">
     <configuration default="false" name="Rails console: consul" type="IrbRunConfigurationType" factoryName="IRB console" temporary="true">
@@ -623,12 +618,12 @@
       <workItem from="1480602618861" duration="4432000" />
       <workItem from="1480680171039" duration="8351000" />
       <workItem from="1480951209639" duration="1009000" />
-      <workItem from="1481017005787" duration="178000" />
+      <workItem from="1481017005787" duration="396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13970000" />
+    <option name="totallyTimeSpent" value="14188000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1047,7 +1042,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/dev_seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="495">
           <caret line="33" column="62" lean-forward="false" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
           <folding />
         </state>
@@ -1075,7 +1070,7 @@
     <entry file="file://$PROJECT_DIR$/config/locales/verification.fr.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="73" column="1" lean-forward="false" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
+          <caret line="73" column="8" lean-forward="false" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
           <folding />
         </state>
       </provider>

@@ -71,7 +71,7 @@ fr:
         postal_code_note: Afin de vérifier votre compte, vous devez être inscrit dans le récensement de Madrid
         terms: Les conditions d'utilisation et d'accès
         title: Vérifier la résidence
-         verify_residence: Vérifier la résidence
+        verify_residence: Vérifier la résidence
     sms:
       create:
         flash:
