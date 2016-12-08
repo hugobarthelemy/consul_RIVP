@@ -19,21 +19,6 @@ Consol is a open source participatory budget platform
 ### postal code
 ### census API
 ## levels of user
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-
-
-| authorisation | simple user | level 1 | level 2 | level 3 | level 4 | level 5 | admin |
-| --------------|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
 | authorisation                 | simple user   | level 1 | level 2 | level 3 | level 4 | level 5 | admin |                                
 | ------------------------------|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:| -----:|
 | variable for change the name  |
