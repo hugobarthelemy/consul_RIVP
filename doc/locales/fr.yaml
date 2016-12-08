@@ -2,7 +2,7 @@
 fr:
   account:
     show:
-      change_credentials_link: Changer mes autorisations
+      change_credentials_link: Changer mon mot de passe
       email_on_comment_label: Me notifier par email quand quelqu'un commente mes propositions
         ou mes débats
       email_on_comment_reply_label: Me notifier par email quand quelqu'un répond à
@@ -185,6 +185,7 @@ fr:
       settings: Paramètres
       spending_proposals: Envoyer les propositions
       stats: Statistiques
+      budgets: Budgets
     moderators:
       index:
         title: Modérateurs
@@ -867,6 +868,7 @@ fr:
       transparency_title: Transparence
       transparency_url: https://transparency.consul
     header:
+      management: Management
       administration: Administration
       debates: Débats
       external_link_blog: Blog
