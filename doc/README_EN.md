@@ -5,6 +5,8 @@ You can look at the site deployed in Madrid here: https://decide.madrid.es/
 # What is the different module of Consul
 ## budget
 # Big steps of consultation
+Inline-style: 
+![alt text](https://github.com/hugobarthelemy/consul_RIVP/app/assets/doc/generalprocess.png "general process")
 1. Registration 
 2. Write a proposal
 3. Amending a proposal
