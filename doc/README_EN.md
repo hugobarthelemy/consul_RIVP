@@ -14,11 +14,23 @@ Inline-style:
 4. Budgeting a proposal
 5. Vote for a proposal
 6. Publication of results of the consultation
+
 # How to install
+
 # Configuration
+
 ## Connection
-### email
+
+### with email
 Mailler in Devise
+When you use sending meail with devise, you need to use a worker. For that, used gem 'thin'
+https://github.com/macournoyer/thin
+
+It's alrady install in Consul code but you need to activate the worker on your server with :
+> $ rake jobs:work &
+
+for check if it's fonctionnal:
+> $ ps aux | grep ruby
 ### Twitter connect
 
 ### Facebook connect
@@ -27,24 +39,59 @@ Mailler in Devise
 
 ### postal code
 
-In "app/models/custom/verification/residence.rb" 
-     def valid_postal_code?
- -      postal_code =~ /^280/
-      end
+In "app/models/custom/verification/residence.rb" configure the check of postal code with a regex 
+> def valid_postal_code?   
+> <Enter> postal_code =~ /^280/  
+> <Enter> end
 
 
 ### census API
 
 ## levels of user
 
-| authorisation                 | simple user   | level 1 | level 2 | level 3 | level 4 | level 5 | admin |                                
-| ------------------------------|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:| -----:|
-| variable for change the name  |
-| See all propositions          |
-| vote for a proposition        |
-| post a proposition            |
-| commente a proposition        |
-| change your proposition       |
+On basic Consul, you have 3 type of users:
+| type of user | name               | type of verification      |
+| -------------|:------------------:| ------------------------: |
+| user level 1 | user no verified   | mail OR social connect    |
+| user level 2 | user verified      | API AND mobile phone      |
+| user level 3 | ?                  | postal mail               |
+
+## type of official people
+| type of official people | es | en | fr |
+| ----------------------- |:--:|:--:|--:|
+| official_level_1_name   | | Mayor | Le maire |
+| official_level_2_name   | |       | Conseiller|
+| official_level_3_name   | |
+| official_level_4_name   | |
+| official_level_5_name   | |
+
+officials people don't have a specific right but they have 
+## organisation
+It's association
+
+## type of admin
+### admin
+He have all of right
+
+moderator
+valuator
+officiel
+
+| authorisation                             | moderator | valuator  | officiel  | admin |                                
+| ------------------------------------------|:---------:|:---------:|:---------:|------:|
+| write a proposition                       | yes       | no        | yes       | yes   |
+| modified proposition                      | yes       | no        | yes       | yes   |
+| deleted proposition                       | yes       | no        | yes       | yes   |
+| write a comment                           | yes       | no        | yes       | yes   |
+| Write a comment for an other persone      | yes       | no        | yes       | yes   |
+| modified a comment                        | yes       | no        | yes       | yes   |
+| modified a coment of an other user        | yes       | no        | yes       | yes   |
+| deleted a comment                         | yes       | no        | yes       | yes   |
+| deleted a comment of an other personne    | yes       | no        | yes       | yes   |
+| define the cost of the proposition        | no        | yes       | no        | yes   |
+
+
+How to define a moderator / valuator / official
 
 
 ## configurate vote / comment / ratio
