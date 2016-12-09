@@ -31,6 +31,7 @@ It's alrady install in Consul code but you need to activate the worker on your s
 
 for check if it's fonctionnal:
 > $ ps aux | grep ruby
+
 ### Twitter connect
 
 ### Facebook connect
@@ -108,13 +109,21 @@ gem 'thin'
 in the server too: $ bundle install
 > $ thin config -C config/thin.yml
 > <Enter> $ vi thin.y^C
+
 > <Enter> $ cd config/
+
 > <Enter> $ vi thin.yml
+
 > <Enter> $ thin start -C config/thin.yml -b ^C
+
 > <Enter> $ cd ..
+
 > <Enter> $ thin start -C config/thin.yml -a 213.246.57.34
+
 > <Enter> $ ps aux | grep ruby
+
 > <Enter> $ ps aux | grep thin
-> <Enter> $ exit # deconection of the server
+
+gst> <Enter> $ exit # deconection of the server
 # How you use
 # How you manage
