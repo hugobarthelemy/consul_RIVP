@@ -51,8 +51,9 @@ In "app/models/custom/verification/residence.rb" configure the check of postal c
 ## levels of user
 
 On basic Consul, you have 3 type of users:
+
 | type of user | name               | type of verification      |
-| -------------|:------------------:| ------------------------: |
+| -------------|:------------------:| -------------------------:|
 | user level 1 | user no verified   | mail OR social connect    |
 | user level 2 | user verified      | API AND mobile phone      |
 | user level 3 | ?                  | postal mail               |
