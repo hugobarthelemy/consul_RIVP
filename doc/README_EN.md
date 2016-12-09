@@ -103,17 +103,18 @@ Tuto is here: https://github.com/macournoyer/thin
 
 add in the gemfile : 
 gem 'thin'
-$ bundle install
+> $ bundle install
+
 in the server too: $ bundle install
-$ thin config -C config/thin.yml
-$ vi thin.y^C
-$ cd config/
-$ vi thin.yml
-$ thin start -C config/thin.yml -b ^C
-$ cd ..
-$ thin start -C config/thin.yml -a 213.246.57.34
-$ ps aux | grep ruby
-$ ps aux | grep thin
-$ exit # deconection of the server
+> $ thin config -C config/thin.yml
+> <Enter> $ vi thin.y^C
+> <Enter> $ cd config/
+> <Enter> $ vi thin.yml
+> <Enter> $ thin start -C config/thin.yml -b ^C
+> <Enter> $ cd ..
+> <Enter> $ thin start -C config/thin.yml -a 213.246.57.34
+> <Enter> $ ps aux | grep ruby
+> <Enter> $ ps aux | grep thin
+> <Enter> $ exit # deconection of the server
 # How you use
 # How you manage
