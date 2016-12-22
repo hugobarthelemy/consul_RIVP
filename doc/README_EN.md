@@ -42,7 +42,7 @@ for check if it's fonctionnal:
 
 In "app/models/custom/verification/residence.rb" configure the check of postal code with a regex 
 > def valid_postal_code?   
-> <Enter> postal_code =~ /^280/  
+> <Enter>     postal_code =~ /^280/  
 > <Enter> end
 
 
@@ -67,7 +67,8 @@ On basic Consul, you have 3 type of users:
 | official_level_4_name   | |
 | official_level_5_name   | |
 
-officials people don't have a specific right but they have 
+officials people don't have a specific right but they have a badge when they comment a post 
+
 ## organisation
 It's association
 
@@ -125,6 +126,10 @@ in the server too: $ bundle install
 
 > <Enter> $ ps aux | grep thin
 
-gst> <Enter> $ exit # deconection of the server
+> <Enter> $ exit # deconection of the server
+
+How to killed thin ?
+$ thin stop
+
 # How you use
 # How you manage
