@@ -6,6 +6,10 @@ class Users::SessionsController < Devise::SessionsController
     # décryptage de la requette
     # vérification du format
     # if utilisateur existant
+    @user_with_good_esi = User.where(esi: 3)
+    @user_with_good_esi_and_good_contract = @user_with_good_esi.where(contract: 2)
+    # SELECT * FROM users WHERE contract = contract
+
       # utilisateur existant
         # connecter l'utilisateur
       # nouvel utilisateur
