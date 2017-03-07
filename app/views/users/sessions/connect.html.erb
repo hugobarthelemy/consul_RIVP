@@ -1,5 +1,17 @@
-<%= @string %>
-encrypt : <%= @test_encrypt %>
-decrypt : <%= @test_decrypt %>
-<%= @user_with_good_esi[0] == [] %>
-<%= @user_with_good_esi_and_good_contract %>
+params : <%= @string_crypt_escape %>
+<br>@string_crypt_unescape : <%= @string_crypt_unescape %>
+
+<br><br>encryption d'un ESI
+<br>exemple : "014203H00021-80031"
+<br>exemple_encrypte : <%= @exemple_encrypte %>
+<br>exemple_encrypte_encode : <%= @exemple_encrypte_encode %>
+
+<br><br>
+<br>@string_decrypt : <%= @string_decrypt %>
+<br> regex : <%=  /^\d\d\d\d\d\dH\d\d\d\d\d-\d\d\d\d\d$/ === @string_decrypt %>
+<br>@esi : <%= @esi %>
+<br>@apartment_number : <%= @apartment_number %>
+<br>@contract : <%= @contract %>
+<br>@site : <%= @site %>
+<br><%= @user_with_good_esi[1] == [] %>
+<br><%= @user_with_good_esi_and_good_contract %>

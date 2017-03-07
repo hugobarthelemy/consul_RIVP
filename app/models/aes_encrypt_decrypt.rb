@@ -3,7 +3,7 @@ class AesEncryptDecrypt
   # require ‘base64’
 
   KEY = "9F6136DAAFCDF718"
-  ALGORITHM = "AES-128-ECB"
+  ALGORITHM = "AES-128-CBC"
 
   def self.encryption(msg)
     begin
