@@ -1,7 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
   def connect
     @encrypt = AesEncryptDecrypt.encrypt("bis")
-    @decrypt = AesEncryptDecrypt.decrypt("ter")
+    @decrypt = AesEncryptDecrypt.decrypt(params[:string])
   end
 
   private
