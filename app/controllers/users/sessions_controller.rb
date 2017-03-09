@@ -1,4 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
+  def connect
+
+  end
 
   private
 
