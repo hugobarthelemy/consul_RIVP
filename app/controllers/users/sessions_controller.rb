@@ -5,8 +5,12 @@ class Users::SessionsController < Devise::SessionsController
 
     # test format
     if regex?
-      @coucou = "hello world"
 
+        parsing_of_decrypt(@decrypt)
+
+        sign_in(User.find(@user_id)) if only_one_contract_on_apartment?
+
+        @coucou = "blab"
     end
   end
 
@@ -14,6 +18,24 @@ class Users::SessionsController < Devise::SessionsController
     def regex?
 
       if @decrypt =~ /^\d\d\d\d\d\dH\d\d\d\d-\d\d\d\d\d\d$/
+        return true
+      else
+        return false
+      end
+    end
+
+    def parsing_of_decrypt(decrypt)
+      # esi
+      @esi = decrypt[0..5]
+      # apartment number
+      @apartment_number = decrypt[7..10]
+      # n° contrat
+      @contract =  decrypt[12..17]
+    end
+
+    def only_one_contract_on_apartment?
+      if User.where(esi: @esi, apartment: @apartment_number, contract: @contract)[0] != nil
+        @user_id = User.where(esi: @esi, apartment: @apartment_number, contract: @contract)[0][:id]
         return true
       else
         return false
