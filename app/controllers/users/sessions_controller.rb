@@ -10,7 +10,9 @@ class Users::SessionsController < Devise::SessionsController
 
         sign_in(User.find(@user_id)) if only_one_contract_on_apartment?
 
-        @coucou = "blab"
+        create_a_new_user if new_user_but_a_contract_exists?
+        create_a_new_user
+        @coucou = "blabla"
     end
   end
 
@@ -40,6 +42,32 @@ class Users::SessionsController < Devise::SessionsController
       else
         return false
       end
+    end
+
+    def new_user_but_a_contract_exists?
+      if User.where(esi: @esi, apartment: @apartment_number)[0] != nil
+        @other_user_id = User.where(esi: @esi, apartment: @apartment_number)[0][:id]
+        User.find(@other_user_id).destroy
+        return true
+      else
+        return false
+      end
+    end
+
+    def create_a_new_user
+      user = User.create!(username: Faker::Name.name,
+        email: Faker::Internet.email,
+        password: "12345678",
+        password_confirmation: "12345678",
+        confirmed_at: Time.current,
+        terms_of_service: "1",
+        esi: @esi,
+        contract: @contract,
+        apartment: @apartment_number)
+      user.save
+      user.update(verified_at: Time.current)
+      user_id = User.last.id
+      sign_in(User.find(user_id))
     end
 
     def after_sign_in_path_for(resource)
