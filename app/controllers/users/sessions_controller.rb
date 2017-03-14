@@ -1,7 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
   def connect
-    @encrypt = AesEncryptDecrypt.encrypt("bis")
-    @decrypt = AesEncryptDecrypt.decrypt(params[:string])
+    @encrypt = AesEncryptDecrypt.ssoencrypt("bis")
+    @decrypt = AesEncryptDecrypt.ssodecrypt(params[:string])
 
     # test format
     if regex?
@@ -61,9 +61,10 @@ class Users::SessionsController < Devise::SessionsController
         password_confirmation: "12345678",
         confirmed_at: Time.current,
         terms_of_service: "1",
-        esi: @esi,
-        contract: @contract,
-        apartment: @apartment_number)
+        # esi: @esi,
+        # contract: @contract,
+        # apartment: @apartment_number
+        )
       user.save
       user.update(verified_at: Time.current)
       user_id = User.last.id
