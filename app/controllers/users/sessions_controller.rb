@@ -10,7 +10,11 @@ class Users::SessionsController < Devise::SessionsController
 
         sign_in(User.find(@user_id)) if only_one_contract_on_apartment?
 
-        create_a_new_user if new_user_but_a_contract_exists? : create_a_new_user
+        if new_user_but_a_contract_exists?
+          create_a_new_user
+        else
+          create_a_new_user
+        end
 
         @coucou = @email
     end
@@ -58,7 +62,7 @@ class Users::SessionsController < Devise::SessionsController
 
     def create_a_new_user
       user = User.create!(username: Faker::Name.name,
-        email: @email,
+        email: Faker::Internet.email,
         password: "12345678",
         password_confirmation: "12345678",
         confirmed_at: Time.current,
@@ -68,7 +72,8 @@ class Users::SessionsController < Devise::SessionsController
         # apartment: @apartment_number
         )
       user.save
-      user.update(verified_at: Time.current)
+      user.update(verified_at: Time.current,
+        email: @email)
       user_id = User.last.id
       sign_in(User.find(user_id))
     end
