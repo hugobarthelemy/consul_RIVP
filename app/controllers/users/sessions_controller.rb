@@ -5,21 +5,21 @@ class Users::SessionsController < Devise::SessionsController
 
     # test format
     if regex?
-
+        binding.pry
         parsing_of_decrypt(@decrypt)
 
         sign_in(User.find(@user_id)) if only_one_contract_on_apartment?
 
-        create_a_new_user if new_user_but_a_contract_exists?
-        create_a_new_user
-        @coucou = "blabla"
+        create_a_new_user if new_user_but_a_contract_exists? : create_a_new_user
+
+        @coucou = @email
     end
   end
 
   private
     def regex?
 
-      if @decrypt =~ /^\d\d\d\d\d\dH\d\d\d\d-\d\d\d\d\d\d$/
+      if @decrypt =~ /^\d\d\d\d\d\dH\d\d\d\d-\d\d\d\d\d\d/
         return true
       else
         return false
@@ -33,6 +33,8 @@ class Users::SessionsController < Devise::SessionsController
       @apartment_number = decrypt[7..10]
       # n° contrat
       @contract =  decrypt[12..17]
+      # email
+      @email = decrypt[19..-1]
     end
 
     def only_one_contract_on_apartment?
@@ -56,7 +58,7 @@ class Users::SessionsController < Devise::SessionsController
 
     def create_a_new_user
       user = User.create!(username: Faker::Name.name,
-        email: Faker::Internet.email,
+        email: @email,
         password: "12345678",
         password_confirmation: "12345678",
         confirmed_at: Time.current,
