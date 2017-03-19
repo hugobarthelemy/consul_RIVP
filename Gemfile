@@ -1,68 +1,68 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.7.1'
+gem 'rails', '5.0.2'
 # Use PostgreSQL
-gem 'pg', '~> 0.19.0'
+gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0', '>= 5.0.4'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 3.0.4'
+gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2.1'
+gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '~> 4.2.2'
+gem 'jquery-rails'
 gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 # Fix sprockets on the
-gem 'sprockets', '~> 3.7.1'
+gem 'sprockets'
 
-gem 'devise', '~> 3.5.7'
+gem 'devise'
 gem 'devise_security_extension'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'omniauth-facebook', '~> 3.0.0'
-gem 'omniauth-google-oauth2', '~> 0.4.0'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 gem 'kaminari'
-gem 'ancestry', '~> 2.2.2'
+gem 'ancestry'
 gem 'acts-as-taggable-on'
-gem 'responders', '~> 2.3.0'
-gem 'foundation-rails', '~> 6.2.4.0'
-gem 'foundation_rails_helper', '~> 2.0.0'
+gem 'responders'
+gem 'foundation-rails'
+gem 'foundation_rails_helper'
 gem 'acts_as_votable'
-gem 'ckeditor', '~> 4.2.2'
-gem 'invisible_captcha', '~> 0.9.2'
+gem 'ckeditor'
+gem 'invisible_captcha'
 gem 'cancancan'
 gem 'social-share-button'
-gem 'initialjs-rails', '0.2.0.4'
-gem 'unicorn', '~> 5.2.0'
-gem 'paranoia', '~> 2.2.0'
-gem 'rinku', '~> 2.0.2', require: 'rails_rinku'
+gem 'initialjs-rails'
+gem 'unicorn'
+gem 'paranoia'
+gem 'rinku', require: 'rails_rinku'
 gem 'savon'
 gem 'dalli'
-gem 'rollbar', '~> 2.14.0'
-gem 'delayed_job_active_record', '~> 4.1.0'
+gem 'rollbar'
+gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'devise-async'
-gem 'newrelic_rpm', '~> 3.17.2.327'
+gem 'newrelic_rpm'
 gem 'whenever', require: false
 gem 'pg_search'
 gem 'sitemap_generator'
 
-gem 'ahoy_matey', '~> 1.5.3'
-gem 'groupdate', '~> 3.1.0' # group temporary data
-gem 'tolk', '~> 2.0.0' # Web interface for translations
+gem 'ahoy_matey'
+gem 'groupdate' # group temporary data
+gem 'tolk' # Web interface for translations
 
 gem 'browser'
-gem 'turnout', '~> 2.4.0'
+gem 'turnout'
 gem 'redcarpet'
 
 group :development, :test do
@@ -71,23 +71,23 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'fuubar'
   gem 'launchy'
   gem 'quiet_assets'
-  gem 'letter_opener_web', '~> 1.3.0'
+  gem 'letter_opener_web'
   gem 'i18n-tasks'
   gem 'axlsx' # for export i18n tag missing with i18n-tasks
-  gem 'capistrano', '3.5.0',           require: false
-  gem 'capistrano-bundler', '~> 1.2',  require: false
-  gem "capistrano-rails", '1.1.8',     require: false
+  gem 'capistrano',          require: false
+  gem 'capistrano-bundler',  require: false
+  gem "capistrano-rails",     require: false
   gem 'rvm1-capistrano3',              require: false
-  gem 'capistrano3-delayed-job', '~> 1.0'
+  gem 'capistrano3-delayed-job'
   gem "bullet"
   gem "faker"
-  gem 'rubocop', '~> 0.45.0', require: false
+  gem 'rubocop' , require: false
   gem 'knapsack'
 end
 
@@ -100,7 +100,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '3.3.0'
+  gem 'web-console'
 end
 
 eval_gemfile './Gemfile_custom'
