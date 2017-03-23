@@ -1,11 +1,12 @@
 class AesEncryptDecrypt
-  # SSO_KEY = '12345678901234567890123456789012'
+  SSO_KEY = ENV["SSO_KEY"]
   CIPHER_METHOD = 'AES-256-CBC'
 
   def self.ssoencrypt(str)
+    # binding.pry
     cipher = OpenSSL::Cipher.new(CIPHER_METHOD)
     cipher.encrypt
-    cipher.key = sso_key
+    cipher.key = SSO_KEY
     data = cipher.update(str) + cipher.final
     return Base64.urlsafe_encode64(data)
   end
@@ -13,7 +14,7 @@ class AesEncryptDecrypt
     data = Base64.urlsafe_decode64(str)
     cipher = OpenSSL::Cipher.new(CIPHER_METHOD)
     cipher.decrypt
-    cipher.key = sso_key
+    cipher.key = SSO_KEY
     return cipher.update(data) + cipher.final
   end
 end
