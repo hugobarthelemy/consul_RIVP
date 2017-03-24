@@ -103,38 +103,6 @@ noe.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNum
 hugo = create_user('hugo@consul.dev', 'hugo')
 hugo.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "3333333333")
 
-(1..10).each do |i|
-  org_name = Faker::Company.name
-  org_user = create_user("org#{i}@consul.dev", org_name)
-  org_responsible_name = Faker::Name.name
-  org = org_user.create_organization(name: org_name, responsible_name: org_responsible_name)
-
-  verified = [true, false].sample
-  if verified then
-    org.verify
-  else
-    org.reject
-  end
-end
-
-(1..5).each do |i|
-  official = create_user("official#{i}@consul.dev")
-  official.update(official_level: i, official_position: "Official position #{i}")
-end
-
-(1..40).each do |i|
-  user = create_user("user#{i}@consul.dev")
-  level = [1, 2, 3].sample
-  if level >= 2
-    user.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: Faker::Number.number(10), document_type: "1" )
-  end
-  if level == 3
-    user.update(verified_at: Time.current, document_number: Faker::Number.number(10) )
-  end
-end
-
-org_user_ids = User.organizations.pluck(:id)
-not_org_users = User.where(['users.id NOT IN(?)', org_user_ids])
 
 puts "Verified all users"
 
