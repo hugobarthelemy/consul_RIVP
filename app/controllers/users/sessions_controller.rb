@@ -66,8 +66,8 @@ class Users::SessionsController < Devise::SessionsController
     def create_a_new_user
       user = User.create!(username: "esi n°#{@esi} appart n° #{@apartment_number}",
         email: @email,
-        password: "12345678",
-        password_confirmation: "12345678",
+        password: Rails.application.secrets.user_pw,
+        password_confirmation: Rails.application.secrets.user_pw,
         confirmed_at: Time.current,
         terms_of_service: "1",
         esi: @esi,
