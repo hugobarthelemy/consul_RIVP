@@ -1,6 +1,8 @@
-# Configuration for development and test environments (GNU/Linux)
+# Production launch (GNU/Linux)
 
-## Git
+## Installing the server environment
+
+### Git
 
 Git is officially maintained in Debian/Ubuntu:
 
@@ -8,7 +10,7 @@ Git is officially maintained in Debian/Ubuntu:
 sudo apt-get install git
 ```
 
-## Ruby
+### Ruby
 
 Ruby versions packaged in official repositories are not suitable to work with consul (at least Debian 7 and 8), so we'll have to install it manually.
 
@@ -16,12 +18,12 @@ The preferred method is via rvm:
 
 (only the multi user option installs all dependencies automatically, as we use 'sudo'.)
 
-###as local user:
+####as local user:
 
 ```
 curl -L https://get.rvm.io | bash -s stable
 ```
-###for all system users
+####for all system users
 
 ```
 curl -L https://get.rvm.io | sudo bash -s stable
@@ -45,7 +47,7 @@ with all this, you are suppose to be able to install a ruby version from rvm, as
 sudo rvm install 2.3.0
 ```
 
-## Bundler
+### Bundler
 
 with
 
@@ -59,7 +61,7 @@ or there is more methods [here](https://rvm.io/integration/bundler) that should 
 gem install rubygems-bundler
 ```
 
-## PostgreSQL (>=9.4)
+### PostgreSQL (>=9.4)
 
 PostgreSQL version 9.4 is not official in debian 7 (wheezy), in 8 it seems to be officially maintained.
 
@@ -91,7 +93,7 @@ apt-get install postgresql-9.4
 apt-get install ghostscript
 ```
 
-## Cloning the repository
+### Cloning the repository
 
 Now, with all the dependencies installed, clone the Consul repository:
 
@@ -100,7 +102,6 @@ git clone https://github.com/consul/consul.git
 cd consul
 bundle install
 cp config/database.yml.example config/database.yml
-cp config/secrets.yml.example config/secrets.yml
 ```
 Perhaps it's needed to create a superuser rol with password in postgresql, and write it in */config/database.yml* 'user:' and 'password:' fields.
 
@@ -116,11 +117,30 @@ for:
 host: /var/run/postgresql
 ```
 
+```
+cp config/secrets.yml.example config/secrets.yml
+sudo vi config/secrets.yml # Change key values to true values
+# Press Esc
+  :wq # for exiting and saving
+  :q! # for exiting without saving
+```
+
 After this:
 
 ```
 rake db:create
 rake db:setup
-rake db:dev_seed
-RAILS_ENV=test bin/rake db:setup
+rake db:prod_seed # if you have one
+RAILS_ENV=production bin/rake db:setup
+```
+
+### Launching the server
+```
+rvmsudo rails server -b ip_of_the_server -p 3000 -d
+```
+### Launch the mailler
+
+### Kill the server
+```
+sudo kill -INT $(cat /home/name_server/consul/tmp/pids/server.pid)
 ```
