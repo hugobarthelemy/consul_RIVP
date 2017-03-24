@@ -49,7 +49,7 @@ puts "Creating Geozones"
 puts "Creating Users"
 
 def create_user(email, username = Faker::Name.name)
-  pwd = '12345678'
+  pwd = Rails.application.secrets.user_pw
   puts "    #{username}"
   User.create!(username: username, email: email, password: pwd, password_confirmation: pwd, confirmed_at: Time.current, terms_of_service: "1")
 end
