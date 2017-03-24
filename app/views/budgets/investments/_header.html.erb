@@ -47,7 +47,9 @@
             <% end %>
           <% else %>
             <h1 class="margin-top"><%= @heading.name %></h1>
-            <h2><%= @budget.formatted_heading_price(@heading) %></h2>
+            <% if @budget.balloting? %>
+              <h2><%= @budget.formatted_heading_price(@heading) %></h2>
+            <% end %>
           <% end %>
         </div>
       </div>
