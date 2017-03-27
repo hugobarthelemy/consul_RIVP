@@ -2,9 +2,22 @@
   <%= render 'shared/errors', resource: @investment %>
 
   <div class="row">
-    <div class="small-12 medium-8 column">
-      <%= f.select :heading_id, budget_heading_select_options(@budget), {include_blank: true, } %>
-    </div>
+
+    <% if current_user.administrator? %>
+      <div class="small-12 medium-8 column">
+        <%= f.select :heading_id, budget_heading_select_options(@budget), {include_blank: true, } %>
+      </div>
+    <% else %>
+      <div class="small-12 medium-8 column">
+        <% current_user_esi = current_user.esi %>
+        <% current_user_geozone = Geozone.where(census_code: current_user_esi) %>
+        <% user_heading_id = current_user_geozone[0][:external_code] %>
+
+        <% site = Budget.last.groups.last.headings.find(user_heading_id) %>
+        <p>Votre proposition est déposé pour le site de : <strong><%= site[:name] %></strong></p>
+        <%= f.hidden_field :heading_id, value: user_heading_id %>
+      </div>
+    <% end %>
 
     <div class="small-12 column">
       <%= f.text_field :title, maxlength: SpendingProposal.title_max_length %>
