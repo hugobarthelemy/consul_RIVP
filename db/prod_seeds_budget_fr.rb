@@ -137,49 +137,65 @@ budget = Budget.create!(
 puts budget.name
 
 puts "Creating Groups"
+
 group = budget.groups.create!(name: "Choisissez votre résidence")
-group.headings << group.headings.create!(name: 'La Grange aux Belles, 10ème',
-                                        # geozone: geozone,
-                                        price: 20000)
-group.headings << group.headings.create!(name: 'La Chapelle Evangile, 18ème',
-                                        # geozone: geozone,
-                                        price: 20000)
-group.headings << group.headings.create!(name: 'Porte de Vanves, 14ème',
-                                        # geozone: geozone,
-                                        price: 20000)
-group.headings << group.headings.create!(name: 'Les Cardeurs-Mouraud, 20ème',
-                                        # geozone: geozone,
-                                        price: 20000)
-group.headings << group.headings.create!(name: 'Bisson Ramponneau-Piat, 20ème',
-                                        # geozone: geozone,
-                                        price: 20000)
-group.headings << group.headings.create!(name: 'Bd Macdonald, 19ème',
-                                        # geozone: geozone,
-                                        price: 20000)
-group.headings << group.headings.create!(name: 'Elie Faure-Commandant l’Herminier, 20ème',
-                                        # geozone: geozone,
-                                        price: 20000)
-group.headings << group.headings.create!(name: 'Jean Bouton-place Henri Frenay, 12ème',
-                                        # geozone: geozone,
-                                        price: 20000)
-group.headings << group.headings.create!(name: 'Zac Vaugirard, 15ème',
-                                        # geozone: geozone,
-                                        price: 20000)
-group.headings << group.headings.create!(name: 'Nationale, 13ème',
-                                        # geozone: geozone,
-                                        price: 20000)
+# group.headings << group.headings.create!(name: 'La Grange aux Belles, 10ème',
+#                                         # geozone: geozone,
+#                                         price: 20000)
+# group.headings << group.headings.create!(name: 'La Chapelle Evangile, 18ème',
+#                                         # geozone: geozone,
+#                                         price: 20000)
+# group.headings << group.headings.create!(name: 'Porte de Vanves, 14ème',
+#                                         # geozone: geozone,
+#                                         price: 20000)
+# group.headings << group.headings.create!(name: 'Les Cardeurs-Mouraud, 20ème',
+#                                         # geozone: geozone,
+#                                         price: 20000)
+# group.headings << group.headings.create!(name: 'Bisson Ramponneau-Piat, 20ème',
+#                                         # geozone: geozone,
+#                                         price: 20000)
+# group.headings << group.headings.create!(name: 'Bd Macdonald, 19ème',
+#                                         # geozone: geozone,
+#                                         price: 20000)
+# group.headings << group.headings.create!(name: 'Elie Faure-Commandant l’Herminier, 20ème',
+#                                         # geozone: geozone,
+#                                         price: 20000)
+# group.headings << group.headings.create!(name: 'Jean Bouton-place Henri Frenay, 12ème',
+#                                         # geozone: geozone,
+#                                         price: 20000)
+# group.headings << group.headings.create!(name: 'Zac Vaugirard, 15ème',
+#                                         # geozone: geozone,
+#                                         price: 20000)
+# group.headings << group.headings.create!(name: 'Nationale, 13ème',
+#                                         # geozone: geozone,
+#                                         price: 20000)
 
-# print "Creating Groups & geozon"
-# file = File.expand_path('../prod_geozone.csv', __FILE__)
-# CSV.foreach(file, {:headers => true, col_sep:';'}) do |row|
-#   puts row[0]
-#   # puts row[1],
-#   # puts row[2]
-#   # if new budget group
-#   # =>
-#   # else
+print "Creating Groups & geozon"
+file = File.expand_path('../prod_geozone.csv', __FILE__)
+CSV.foreach(file, {:headers => true, :col_sep => ';', :encoding => 'iso-8859-1:UTF-8'}) do |row|
+  puts row[0]
+  if Budget.last.groups.last.headings.where(name: row[0])[0] != nil
+    puts "le site existe"
+    site = Budget.last.groups.last.headings.where(name: row[0])
+    p site[0][:name]
+    p site[0].id
+    # création de la geozone = esi
+    Geozone.create(name: row[2], external_code: site[0].id, census_code: row[1])
+    p "la géozone #{Geozone.last[:census_code]} à été créée"
+  else
+    puts "le site n'existe pas"
+    p "création du site"
+    site = group.headings.create!(name: row[0],
+                                        # geozone: geozone,
+                                        price: row[3])
+    group.headings << site
+    p "le site #{site[:name]} à été créé"
+    #création du geozone
+    Geozone.create(name: row[2], external_code: site.id, census_code: row[1])
+    p "la géozone #{Geozone.last[:census_code]} à été créée"
+  end
 
-# end
+end
 
 # with_investments = "yes"
 # if with_investments = "yes"
