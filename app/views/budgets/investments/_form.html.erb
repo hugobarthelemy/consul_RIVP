@@ -14,7 +14,7 @@
         <% user_heading_id = current_user_geozone[0][:external_code] %>
 
         <% site = Budget.last.groups.last.headings.find(user_heading_id) %>
-        <p>Votre proposition est déposé pour le site de : <strong><%= site[:name] %></strong></p>
+        <p>Votre proposition est déposée pour le site de : <strong><%= site[:name] %></strong></p>
         <%= f.hidden_field :heading_id, value: user_heading_id %>
       </div>
     <% end %>
