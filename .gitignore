@@ -31,3 +31,7 @@
 .ruby-gemset
 
 public/sitemap.xml
+
+# Production
+/vendor
+/public/assets
