@@ -50,6 +50,7 @@ module Budgets
           defaults channel: "#rivp",
                    username: "Ton ami le serveur :)"
         end
+
         notifier.ping ":champagne: New investment ! :champagne: #{@investment[:title]} - #{@investment[:description]}"
         Mailer.budget_investment_created(@investment).deliver_later
         redirect_to budget_investment_path(@budget, @investment),
