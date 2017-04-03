@@ -46,6 +46,11 @@ module Budgets
       @investment.author = current_user
 
       if @investment.save
+        notifier = Slack::Notifier.new Rails.application.secrets.slack_key do
+          defaults channel: "#rivp",
+                   username: "Ton ami le serveur :)"
+        end
+        notifier.ping ":champagne: New investment ! :champagne: #{@investment[:title]} - #{@investment[:description]}"
         Mailer.budget_investment_created(@investment).deliver_later
         redirect_to budget_investment_path(@budget, @investment),
                     notice: t('flash.actions.create.budget_investment')
