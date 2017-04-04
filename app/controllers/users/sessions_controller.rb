@@ -1,5 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
   def connect
+    require 'slack-notifier'
     @encrypt = AesEncryptDecrypt.ssoencrypt("bis")
     @decrypt = AesEncryptDecrypt.ssodecrypt(params[:string])
 
@@ -64,6 +65,11 @@ class Users::SessionsController < Devise::SessionsController
     end
 
     def create_a_new_user
+      notifier = Slack::Notifier.new Rails.application.secrets.slack_key do
+        defaults channel: "#rivp",
+                 username: "Ton ami le serveur :)"
+      end
+
       user = User.create!(username: "esi n°#{@esi} appart n° #{@apartment_number}",
         email: @email,
         password: Rails.application.secrets.user_pw,
@@ -74,10 +80,19 @@ class Users::SessionsController < Devise::SessionsController
         contract: @contract,
         apartment: @apartment_number
         )
-      user.save
-      user.update(verified_at: Time.current)
-      user_id = User.last.id
-      sign_in(User.find(user_id))
+      if user.save
+        user.update(verified_at: Time.current)
+        user_id = User.last.id
+
+
+        current_user_geozone = Geozone.where(census_code: @esi)
+        user_heading_id = current_user_geozone[0][:external_code]
+        site = Budget.last.groups.last.headings.find(user_heading_id)
+
+
+        notifier.ping ":bust_in_silhouette: New user ! :bust_in_silhouette: #{site[:name]} - esi n°#{@esi} #{Geozone.where(census_code: @esi)[0].name} - appart n° #{@apartment_number} #{@email}"
+        sign_in(User.find(user_id))
+      end
     end
 
     def after_sign_in_path_for(resource)
@@ -97,5 +112,7 @@ class Users::SessionsController < Devise::SessionsController
       stored_path = session[stored_location_key_for(resource)] || ""
       stored_path[0..5] == "/email"
     end
+
+
 
 end
