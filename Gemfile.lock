@@ -393,6 +393,7 @@ GEM
     simplecov-html (0.10.0)
     sitemap_generator (5.2.0)
       builder (~> 3.0)
+    slack-notifier (2.1.0)
     slop (3.6.0)
     social-share-button (0.3.1)
       coffee-rails
@@ -528,6 +529,7 @@ DEPENDENCIES
   sass-rails (~> 5.0, >= 5.0.4)
   savon
   sitemap_generator
+  slack-notifier
   social-share-button
   spring
   spring-commands-rspec

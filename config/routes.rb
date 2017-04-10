@@ -245,6 +245,17 @@ Rails.application.routes.draw do
       put :hide, on: :member
       put :moderate, on: :collection
     end
+
+    resources :budgets do
+      resources :budget_groups do
+        resources :budget_headings do
+        end
+      end
+
+      resources :budget_investments, only: [:index, :show, :edit, :update] do
+        member { patch :toggle_selection }
+      end
+    end
   end
 
   namespace :valuation do
