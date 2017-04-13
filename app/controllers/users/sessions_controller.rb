@@ -8,7 +8,7 @@ class Users::SessionsController < Devise::SessionsController
     if regex?
 
         sign_out(current_user)
-        parsing_of_decrypt(@decrypt)
+        parsing_of_decrypt(@decrypt, @size_of_contract_num)
         # binding.pry
         if only_one_contract_on_apartment?
           sign_in(User.find(@user_id))
@@ -27,22 +27,28 @@ class Users::SessionsController < Devise::SessionsController
   private
     def regex?
 
-      if @decrypt =~ /^\d\d\d\d\d\dH\d\d\d\d-\d\d\d\d\d\d/
+      if @decrypt =~ /^\d\d\d\d\d\dH\d\d\d\d-\d\d\d\d\d\d-/
+        @size_of_contract_num = 6
         return true
       else
-        return false
+        if @decrypt =~ /^\d\d\d\d\d\dH\d\d\d\d-\d\d\d\d\d-/
+          @size_of_contract_num = 5
+          return true
+        else
+          return false
+        end
       end
     end
 
-    def parsing_of_decrypt(decrypt)
+    def parsing_of_decrypt(decrypt, size_of_contract_num)
       # esi
-      @esi = decrypt[0..5]
+      @esi = decrypt[0..5].to_i
       # apartment number
       @apartment_number = decrypt[7..10]
       # n° contrat
-      @contract =  decrypt[12..17]
+      @contract =  decrypt[12..12+size_of_contract_num-1]
       # email
-      @email = decrypt[19..-1]
+      @email = decrypt[12+size_of_contract_num+1..-1]
     end
 
     def only_one_contract_on_apartment?
