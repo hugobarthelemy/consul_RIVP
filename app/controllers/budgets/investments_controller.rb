@@ -60,6 +60,12 @@ module Budgets
       end
     end
 
+    def edit
+    end
+
+    def update
+    end
+
     def destroy
       investment.destroy
       redirect_to user_path(current_user, filter: 'budget_investments'), notice: t('flash.actions.destroy.budget_investment')
