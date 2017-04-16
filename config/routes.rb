@@ -75,7 +75,7 @@ Rails.application.routes.draw do
 
   resources :budgets, only: [:show, :index] do
     resources :groups, controller: "budgets/groups", only: [:show]
-    resources :investments, controller: "budgets/investments", only: [:index, :new, :create, :show, :destroy] do
+    resources :investments, controller: "budgets/investments", only: [:index, :new, :create, :show, :destroy, :edit, :update] do
       member { post :vote }
     end
     resource :ballot, only: :show, controller: "budgets/ballots" do

@@ -14,7 +14,7 @@ module Abilities
       can [:search, :read], Annotation
       can [:read], Budget
       can [:read], Budget::Group
-      can [:read, :print], Budget::Investment
+      can [:read,  :update, :edit, :print], Budget::Investment
       can :new, DirectMessage
     end
   end

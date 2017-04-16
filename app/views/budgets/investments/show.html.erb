@@ -6,5 +6,7 @@
   investment_votes: @investment_votes,
   ballot: @ballot
 } %>
-
+<% if current_user.administrator? or current_user.official? %>
+  <%= link_to "Modifier la proposition", edit_budget_investment_path, class: "button" %>
+<% end %>
 <%= render partial: '/comments/comment_tree', locals: { comment_tree: @comment_tree, comment_flags: @comment_flags } %>
