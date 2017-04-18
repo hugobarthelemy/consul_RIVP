@@ -53,8 +53,10 @@
       <% end %>
     </div>
     <div class="small-12 medium-9 column btn-edit-investment">
-      <% if current_user.administrator? or current_user.official? %>
-        <%= link_to "Modifier la proposition", edit_budget_investment_path, class: "button" %>
+      <% if current_user != nil %>
+        <% if current_user.administrator? or current_user.official? %>
+          <%= link_to "Modifier la proposition", edit_budget_investment_path, class: "button" %>
+        <% end %>
       <% end %>
     </div>
 
