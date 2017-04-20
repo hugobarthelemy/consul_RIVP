@@ -1,4 +1,5 @@
-<%= form_for(@investment, url: form_url, method: :post) do |f| %>
+
+<%= form_for(@investment, url: if @method = "post"; form_url else budget_investment_path end, method: @method) do |f| %>
   <%= render 'shared/errors', resource: @investment %>
 
   <div class="row">
