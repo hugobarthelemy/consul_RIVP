@@ -226,6 +226,9 @@ $sixth-color: #FF9200;
 
 .home{
   // padding-bottom: 10px;
+  .callout.primary{
+    border: solid #CD2B33;
+  }
   h1 {
     text-align: center;
     padding-top: 40px;
@@ -239,6 +242,8 @@ $sixth-color: #FF9200;
     color: white;
     p{
       margin-top: 15px;
+      text-align: left;
+      margin: 35px;
     }
   }
   p {
