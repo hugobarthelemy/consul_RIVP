@@ -32,6 +32,7 @@ module Budgets
     end
 
     def new
+      @method = "post"
     end
 
     def show
@@ -57,6 +58,33 @@ module Budgets
                     notice: t('flash.actions.create.budget_investment')
       else
         render :new
+      end
+    end
+
+    def edit
+      @method = :patch
+    end
+
+    def update
+      @investment = Budget::Investment.find(params[:id])
+      if @investment.update(title: params[:budget_investment][:title],
+        description: params[:budget_investment][:description],
+        external_url: params[:budget_investment][:external_url],
+        location: params[:budget_investment][:location],
+        organization_name: params[:budget_investment][:organization_name],
+        tag_list: params[:budget_investment][:tag_list])
+
+        notifier = Slack::Notifier.new Rails.application.secrets.slack_key do
+          defaults channel: "#rivp",
+                   username: "Ton ami le serveur :)"
+        end
+
+        notifier.ping ":champagne: Investment update ! :champagne: #{@investment[:title]} - #{@investment[:description]} - site : #{Budget.last.groups.last.headings.find(params[:budget_investment][:heading_id])[:name]}"
+        Mailer.budget_investment_created(@investment).deliver_later
+        redirect_to budget_investment_path(@budget, @investment),
+                    notice: t('flash.actions.create.budget_investment')
+      else
+        render :edit
       end
     end
 
