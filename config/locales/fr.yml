@@ -1500,20 +1500,20 @@ fr:
     comment_unauthenticated: Vous devez vous %{signin} ou %{signup} pour voter.
     disagree: Je ne suis pas d'accord
     organizations: Les organisations ne sont pas autorisées à voter
-    signin: Se connecter
-    signup: S'inscrire
+    signin: connecter
+    signup: inscrire
     supports: Soutiens
-    unauthenticated: Merci de vous %{signin} ou %{signup} pour continuer.
+    unauthenticated: Merci de vous %{signin} ou vous %{signup} pour continuer.
     verified_only: "Seuls les utilisateurs vérifiés peuvent voter sur les propositions; %{verify_account}."
     verify_account: Vérifier votre compte
     spending_proposals:
-      not_logged_in: Vous devez vous %{signin} ou %{signup} pour continuer.
+      not_logged_in: Vous devez vous %{signin} ou vous %{signup} pour continuer.
       not_verified: Seulement les utilisateurs connectés peuvent voter pour une proposition; %{verify_account}.
       organization: Les organisations ne sont pas authorisée à voter
       unfeasible: Les projets infaisables ne peuvent pas être supportés.
       not_voting_allowed: La phase de vote est terminée
     budget_investments:
-      not_logged_in: Vous devez vous %{signin} ou %{signup} pour continuer.
+      not_logged_in: Vous devez vous %{signin} via votre espace locataire pour continuer.
       not_verified: Seulement les utilisateurs connectés peuvent voter pour une proposition; %{verify_account}.
       organization: Les organisations ne sont pas authorisée à voter
       unfeasible: Les projets infaisables ne peuvent pas être supportés.

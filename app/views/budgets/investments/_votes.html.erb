@@ -31,8 +31,8 @@
       <p>
           <%= t("votes.budget_investments.#{reason}",
                 verify_account: link_to(t("votes.verify_account"), verification_path),
-                signin: link_to(t("votes.signin"), new_user_session_path),
-                signup: link_to(t("votes.signup"), new_user_registration_path)
+                signin: link_to(t("votes.signin"), 'https://extranet-rivp.fr/'),
+                signup: link_to(t("votes.signup"), 'https://extranet-rivp.fr/')
            ).html_safe %>
       </p>
     </div>
