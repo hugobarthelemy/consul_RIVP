@@ -32,7 +32,7 @@ module Budgets
     end
 
     def new
-      @method = "post"
+      @method = :post
     end
 
     def show
