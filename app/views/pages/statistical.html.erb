@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="table-responsive">
+    <h1>Synthèse globale</h1>
+    <table class="table">
+      <tr>
+        <td>Nombre d'utilisateurs</td>
+        <td>Nombre de projets</td>
+        <td>Nombre de sites</td>
+      </tr>
+      <tr>
+        <td><%= User.all.count - 14 %> </td>
+        <td><%= Budget::Investment.all.count %></td>
+        <td><%= Budget::Heading.all.count %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="table-responsive">
+    <h1>Nombre de projets par catégorie</h1>
+    <table class="table">
+      <tr>
+        <td>Catégorie</td>
+        <td>Nombre de projets</td>
+      </tr>
+        <% ActsAsTaggableOn::Tag.all.each do |tag| %>
+        <tr>
+          <td><%= tag.name %></td>
+          <% i = 0 %>
+          <% Budget::Investment.all.each do |invest|%>
+            <% if invest.tags %>
+              <% invest.tags.each do |one_invest_tag| %>
+                <% if one_invest_tag.id == tag.id %>
+                  <% i = i + 1 %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <td><%= i %></td>
+        <% end %>
+        </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="table-responsive">
+  <h1>Nombre de projets par site et par catégorie</h1>
+    <table class="table">
+      <tr>
+        <td>Site</td>
+        <td>Catégorie</td>
+        <td>Nombre de projets</td>
+      </tr>
+      <% Budget::Heading.all.each do |site| %>
+        <tr>
+          <td><%= site.name %></td>
+          <td></td>
+          <td> <%= Budget::Investment.where(heading_id: site.id).count %></td>
+        </tr>
+          <% all_invest_of_this_site = Budget::Investment.where(heading_id: site.id) %>
+          <% ActsAsTaggableOn::Tag.all.each do |tag| %>
+          <tr>
+            <td></td>
+            <td><%= tag.name %></td>
+            <% i = 0 %>
+            <% all_invest_of_this_site.each do |invest|%>
+              <% if invest.tags %>
+                <% invest.tags.each do |one_invest_tag| %>
+                  <% if one_invest_tag.id == tag.id %>
+                    <% i = i + 1 %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+            <td><%= i %></td>
+          <% end %>
+        </tr>
+
+      <% end %>
+    </table>
+  </div>
+</div>
+<br><br><br><br><br>
