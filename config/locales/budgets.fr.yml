@@ -72,8 +72,8 @@ fr:
       investment:
         already_added: Vous avez déjà ajouté ce projet d'investissement
         already_supported: Vous soutenez déjà ce projet. Partagez-le !
-        give_support: Soutenir
-        add: Ajouter
+        give_support: Soutenir ce projet
+        add: Voter pour ce projet
         support_title: Soutenir ce projet
         confirm_group: "Vous ne pouvez soutenir que les investissements de votre site."
         title: Projet d'investissement
