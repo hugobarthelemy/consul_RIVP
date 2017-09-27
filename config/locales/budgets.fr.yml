@@ -3,10 +3,10 @@ fr:
     ballots:
       show:
         title: Votre bulletin
-        voted_html:
-          one: "Vous avez voté pour <span>une</span> proposition."
-          ohter: "Vous avez voté pour <span>%{count}</span> propositions"
-          zero: "Vous avez voté pour <span>0</span> proposition"
+        voted_html: "Vous avez voté pour les propositions suivantes"
+          # ohter: "Vous avez voté pour <span>%{count}</span> propositions"
+          # zero: "Vous avez voté pour <span>0</span> proposition"
+          # one: "Vous avez voté pour les propositions suivantes."
         voted_info_html: Vous pouvez modifier votre vote à tout moment, jusqu'à la fin de cette phase.<br> Pas besoin d'investir tout l'argent disponible.
         amount_spent: "Montant dépensé"
         zero: Vous n'avez voté sur aucun projet d'investissement
