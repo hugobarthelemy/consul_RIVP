@@ -251,6 +251,98 @@ $sixth-color: #FF9200;
   }
 }
 
+.results{
+  table{
+    line-height: 1rem;
+    font-size: 0.8rem;
+  }
+  .bisson{
+    background-color: rgba(9, 113, 56, 0.6);
+  }
+  .bisson.lost{
+    background-color: rgba(9, 113, 56, 0.1);
+  }
+  .nationale{
+    background-color: rgba(2, 136, 209, 0.6);
+  }
+  .nationale.lost{
+    background-color: rgba(2, 136, 209, 0.1);
+  }
+
+  .macdonald{
+    background-color: rgba(26, 35, 126, 0.6);
+  }
+  .macdonald.lost{
+    background-color: rgba(26, 35, 126, 0.1);
+  }
+  .chapelle{
+    background-color: rgba(0, 151, 167, 0.6);
+  }
+  .chapelle.lost{
+    background-color: rgba(0, 151, 167, 0.1);
+  }
+  .bouton{
+    background-color: rgba(136, 14, 79, 0.6);
+  }
+  .bouton.lost{
+    background-color: rgba(136, 14, 79, 0.1);
+  }
+  .grange{
+    background-color: rgba(15, 157, 88, 0.6);
+  }
+  .grange.lost{
+    background-color: rgba(15, 157, 88, 0.1);
+  }
+  .vanves{
+    background-color: rgba(194, 24, 91, 0.6);
+  }
+  .vanves.lost{
+    background-color: rgba(194, 24, 91, 0.1);
+  }
+  .vaugirard{
+    background-color: rgba(103, 58, 183, 0.6);
+  }
+  .vaugirard.lost{
+    background-color: rgba(103, 58, 183, 0.1);
+  }
+  .faure{
+    background-color: rgba(194, 24, 91, 0.6);
+  }
+  .faure.lost{
+    background-color: rgba(194, 24, 91, 0.1);
+  }
+  .carderus{
+    background-color: rgba(121, 85, 72, 0.6);
+  }
+  .carderus.lost{
+    background-color: rgba(121, 85, 72, 0.1);
+  }
+
+  .callout.primary{
+    border: solid #CD2B33;
+  }
+  h1 {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-color: #F8BA2B;
+  }
+  background-color: #F5F5F5;
+  padding-bottom: 38px;
+  .actu{
+    background: #CD2B33;
+    color: white;
+    p{
+      margin-top: 15px;
+      text-align: left;
+      margin: 35px;
+    }
+  }
+  p {
+    text-align: center;
+  }
+}
+
 .blue-body{
   h1{
     margin-top: -25px;
