@@ -425,3 +425,12 @@ $sixth-color: #FF9200;
     background-color: orange;
   }
 }
+
+.btn-results {
+  .button {
+    background-color: orange;
+  }
+  @media screen and (min-width: 40em){
+    width: 92%;
+    }
+}
