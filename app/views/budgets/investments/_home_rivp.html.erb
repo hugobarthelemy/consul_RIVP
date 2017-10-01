@@ -63,10 +63,11 @@
   </div>
   <div class="actu">
      <div class="row">
-     <p><strong>ACTU ! Votez pour vos projets préférés sur votre site</strong>
-        <br>Plus de 150 idées ont été déposées sur la plateforme ! Merci à vous. Après étude technique et deux commissions, 57 projets sont soumis à votre vote du 20 au 30 septembre. Vous pouvez voter sur cette plateforme, dans la loge de votre gardien ou au pied de votre immeuble (<%= link_to "calendrier", "more_information#12" %>)
-
-        <br>Les résultats seront publiés le 2 octobre et annoncés le 5 octobre.</p>
+        <% if @budget.phase == "finished" %>
+          <p><strong>Actu ! Les résultats du budget participatif de la RIVP sont disponibles !</strong></p>
+        <% else %>
+          <p><strong>ACTU ! Les votes sont en court de dépouillement</strong></p>
+        <% end %>
      </div>
    </div>
 </div>
