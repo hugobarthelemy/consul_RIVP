@@ -1,21 +1,13 @@
 <div class="container results">
   <div class="col-xs-10 col-xs-offset-1 col-xm-8 col-xs-offset-2">
     <div class="column">
-      <table>
-           <tr>
-               <td width="15%"><b>Site</b></td>
-               <td width="20%"><b>Projet</b></td>
-               <td width="10%"><b>gagant ?</b></td>
-               <td width="5%"><b>id</b></td>
-               <td width="10%"><b>Coût</b></td>
-               <td width="10%"><b>Nombre de votes papiers</b></td>
-               <td width="10%"><b>Nombre de votes électroniques</b></td>
-               <td width="10%"><b>Total</b></td>
-           </tr>
+      <h1>Resultats du budget participatif 2017 de la RIVP</h1>
+
+      <% last_site = "" %>
       <% @results.each do |result| %>
         <% if result[:accepted] == "Accepté" %>
-           <tr class="<%= result[:color] %>">
-              <td><%= result[:site] %></td>
+          <% if result[:site] == last_site %>
+            <tr class="<%= result[:color] %>">
               <td>
                 <% if (Budget::Investment.find(result[:id]) rescue nil) != nil %>
                   <%= link_to result[:name], budget_investment_path(Budget.find(1), Budget::Investment.find(result[:id])) %>
@@ -24,18 +16,53 @@
                 <% end %>
               </td>
               <td>
-                <% if result[:win] == "Gagné" %>
+                <% if result[:win] == "Lauréat" %>
                   <i class="fa fa-trophy" aria-hidden="true"></i>
                 <% end %>
                 <%= result[:win] %></td>
-              <td><%= result[:id] %></td>
               <td><%= result[:cost] %></td>
               <td><%= result[:paper_vote] %></td>
               <td><%= result[:electronic_vote] %></td>
               <td><%= result[:total] %></td>
             </tr>
+            <% last_site = result[:site] %>
+          <% else %>
+            </table>
+              <h2><%= result[:site] %> </h2>
+            <table>
+              <tr>
+                <td width="50%"><b>Projet</b></td>
+                <td width="10%"><b>Résultat</b></td>
+                <td width="10%"><b>Coût</b></td>
+                <td width="10%"><b>Votes papiers</b></td>
+                <td width="10%"><b>Votes en ligne</b></td>
+                <td width="10%"><b>Total</b></td>
+              </tr>
+            <% if result[:accepted] == "Accepté" %>
+              <tr class="<%= result[:color] %>">
+                <td>
+                  <% if (Budget::Investment.find(result[:id]) rescue nil) != nil %>
+                    <%= link_to result[:name], budget_investment_path(Budget.find(1), Budget::Investment.find(result[:id])) %>
+                  <% else %>
+                    <%= result[:name] %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if result[:win] == "Lauréat" %>
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                  <% end %>
+                  <%= result[:win] %></td>
+                <td><%= result[:cost] %></td>
+                <td><%= result[:paper_vote] %></td>
+                <td><%= result[:electronic_vote] %></td>
+                <td><%= result[:total] %></td>
+              </tr>
+
+            <% end %>
+            <% last_site = result[:site] %>
           <% end %>
         <% end %>
+      <% end %>
       </table>
     </div>
   </div>
