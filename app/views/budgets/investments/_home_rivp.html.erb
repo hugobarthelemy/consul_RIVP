@@ -65,6 +65,9 @@
      <div class="row">
         <% if @budget.phase == "finished" %>
           <p><strong>Actu ! Les résultats du budget participatif de la RIVP sont disponibles !</strong></p>
+          <div class="btn-results text-center">
+              <%= link_to "Voir les résultats", results_path, class: "button" %>
+          </div>
         <% else %>
           <p><strong>ACTU ! Les votes sont en court de dépouillement</strong></p>
         <% end %>
