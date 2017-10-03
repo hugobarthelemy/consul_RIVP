@@ -29,6 +29,14 @@
           <% else %>
             </table>
               <h2><%= result[:site] %> </h2>
+              <% case result[:site] %>
+              <% when "Boulevard Macdonald" %>
+                <p>Les projets lauréats ont été désignés en fonction du nombre de votes et dans la limite de l'enveloppe budgétaire. Sur ce site, un projet n'a pas pu être validé car l'enveloppe était déjà dépassée. C'est donc le projet suivant qui a été retenu.</p>
+              <% when "La Chapelle Evangile" %>
+                <p>Les projets lauréats ont été désignés en fonction du nombre de votes et dans la limite de l'enveloppe budgétaire. Sur ce site, un projet n'a pas pu être validé car l'enveloppe était déjà dépassée. C'est donc le projet suivant qui a été retenu.</p>
+              <% when "Nationale" %>
+                <p>Les projets lauréats ont été désignés en fonction du nombre de votes et dans la limite de l'enveloppe budgétaire. Sur ce site, un projet n'a pas pu être validé car l'enveloppe était déjà dépassée. Ce sont donc les projets suivants qui ont été retenus.</p>
+              <% end %>
             <table>
               <tr>
                 <td width="50%"><b>Projet</b></td>
