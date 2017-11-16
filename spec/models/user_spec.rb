@@ -658,19 +658,19 @@ describe User do
   end
 
   describe "#interests" do
-    let(:user)     { create(:user) }
+    let(:user) { create(:user) }
 
     it "should return followed object tags" do
-      proposal =  create(:proposal, tag_list: "Sport")
+      proposal = create(:proposal, tag_list: "Sport")
       create(:follow, followable: proposal, user: user)
 
       expect(user.interests).to eq ["Sport"]
     end
 
     it "should discard followed objects duplicated tags" do
-      proposal1 =  create(:proposal, tag_list: "Sport")
-      proposal2 =  create(:proposal, tag_list: "Sport")
-      budget_investment =  create(:budget_investment, tag_list: "Sport")
+      proposal1 = create(:proposal, tag_list: "Sport")
+      proposal2 = create(:proposal, tag_list: "Sport")
+      budget_investment = create(:budget_investment, tag_list: "Sport")
 
       create(:follow, followable: proposal1, user: user)
       create(:follow, followable: proposal2, user: user)
@@ -680,4 +680,5 @@ describe User do
     end
 
   end
+
 end
