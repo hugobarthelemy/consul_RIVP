@@ -31,3 +31,5 @@
 .ruby-gemset
 
 public/sitemap.xml
+
+.idea/*
