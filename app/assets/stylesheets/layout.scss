@@ -312,8 +312,8 @@ header {
   .top-bar-title a {
     @include logo;
     img {
-      height: 80px;
-      width: 96px;
+      height: 60px;
+      padding-top: 10px;
     }
     line-height: rem-calc(80) !important;
     color: $dark;
