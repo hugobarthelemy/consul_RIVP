@@ -66,12 +66,12 @@
         <% if @budget.phase == "finished" %>
           <p><strong>Actu ! Les résultats du budget participatif de la RIVP sont disponibles !</strong></p>
           <div class="btn-results text-center" style="margin-left: 3rem">
-              <%= link_to "Voir les résultats 2017", results_path, class: "button" %>
+              <%= link_to "Consultez l'avancée des projets votés en 2017", results_path, class: "button" %>
           </div>
         <% else %>
           <p><strong>ACTU ! déposez vos idées pour le budget participatif 2018 à partir du 3 avril</strong></p>
            <div class="btn-results text-center" style="margin-left: 3rem">
-             <%= link_to "Voir les résultats 2017", results_path, class: "button" %>
+             <%= link_to "Consultez l'avancée des projets votés en 2017", results_path, class: "button" %>
            </div>
         <% end %>
      </div>
@@ -205,10 +205,10 @@
 
 
 <div class="container home">
-  <h1>Consultez les projet 2017</h1>
+  <h1>Consultez l'avancée des projets votés en 2017 site par site</h1>
   <div class="row">
     <div class="btn-results text-center" style="margin-left: 3rem">
-      <%= link_to "Voir directement l'ensemble des résultats 2017", results_path, class: "button" %>
+      <%= link_to "Consultez l'avancée de l'ensemble des projets votés en 2017", results_path, class: "button" %>
     </div>
   </div>
   <div class="row margin-top show-for-medium ">
