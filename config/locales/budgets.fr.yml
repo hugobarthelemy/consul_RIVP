@@ -108,21 +108,21 @@ fr:
       steps_cards:
         accepting:
           title: "Déposez vos idées"
-          dates: "du 3 avril au 3 juillet"
+          dates: "du 3 avril au 15 juin"
           description: "Participez aux réunions en pied d’immeuble et déposez vos idées sur la plateforme."
           more_info: "Plus d'information"
           img: custom/accepting.svg
           name: accepting
         reviewing:
           title: Enrichissez les autres
-          dates: du 3 avril au 3 juillet
+          dates: du 3 avril au 15 juin
           description: "Rejoignez les ateliers de co-construction sur le terrain et commentez les idées de vos voisins."
           more_info: "Plus d'information"
           img: custom/reviewing.svg
           name: reviewing
         selecting:
           title: Soutenez les meilleures
-          dates: du 3 avril au 3 juillet
+          dates: du 3 avril au 15 juin
           description: "Accédez à toutes les idées des locataires et soutenez celles qui vous plaisent."
           more_info: "Plus d'information"
           img: custom/selecting.svg
@@ -144,7 +144,7 @@ fr:
         finished:
           title: Annonce des résultats
           dates: 24 septembre
-          description: "Les projets retenus seront communiqués à tous et mis en œuvre par les lauréats en 2018."
+          description: "Les projets retenus seront communiqués à tous et mis en œuvre par les lauréats en 2019."
           more_info: "Plus d'information"
           img: custom/finished.svg
           name: finished
