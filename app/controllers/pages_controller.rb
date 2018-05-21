@@ -65,7 +65,8 @@ class PagesController < ApplicationController
    electronic_vote: Budget::Ballot::Line.where(investment_id: row[1]).count,
    total: row[19],
    color: row[21],
-   status: row[23],
-   year: row[24]}
+   step: row[23],
+   year: row[24],
+   actu: row[25]}
   end
 end
