@@ -3,50 +3,50 @@
     <div class="col-xs-10 col-xs-offset-1 col-xm-8 col-xs-offset-2">
       <div class="column">
         <h1>Résultats du budget participatif <%= year %> de la RIVP</h1>
+        <center><h3>Suivez l'avancée des projets en cliquant dessus</h3></center>
+        <% @years[year].keys.each do |site| %>
+            <h2><%= site %></h2>
+            <table>
+              <tr>
+                <td width="30%"><b>Projet</b></td>
+                <td width="10%"><b>Coût</b></td>
+                <td width="10%"><b>Statut</b></td>
+                <td width="50%"><b>Actualité</b></td>
+              </tr>
+
+
+              <% @years[year][site].keys.each do |projet| %>
+                  <% projet = @years[year][site][projet] %>
+                  <tr class="<%= projet[:color] %>">
+                    <td>
+                      <% if (Budget::Investment.find(projet[:id]) rescue nil) != nil %>
+                          <%= link_to projet[:name], budget_investment_path(Budget.find(1), Budget::Investment.find(projet[:id])) %>
+                      <% else %>
+                          <%= projet[:name] %>
+                      <% end %>
+                    </td>
+                    <td class=""win"><%= projet[:cost] %></td>
+                    <td>
+                      <% case projet[:step] %>
+                      <% when "En préparation" %>
+                          <i class="fas fa-battery-empty" aria-hidden="true"></i>  En préparation
+                      <% when "En cours" %>
+                          <i class="fas fa-battery-half" aria-hidden="true"></i>  En cours
+                      <% when "Réalisé" %>
+                          <i class="fas fa-battery-full" aria-hidden="true"></i>  Réalisé
+                      <% else %>
+                          <%= projet[:step] %><i class="fas fa-battery-slash" aria-hidden="true">  Status inconnu
+                      <% end %>
+                    </td>
+                    <td><%= projet[:actu] %></td>
+                  </tr>
+
+              <% end %>
+            </table>
+        <% end %>
+<% end %>
       </div>
     </div>
   </div>
 
 
-    <% @years[year].keys.each do |site| %>
-      <h2><%= site %></h2>
-            <table>
-              <tr>
-                <td width="50%"><b>Projet</b></td>
-                <td width="10%"><b>Coût</b></td>
-                <td width="10%"><b>Statut</b></td>
-                <td width="30%"><b>Actualité</b></td>
-              </tr>
-
-
-      <% @years[year][site].keys.each do |projet| %>
-        <% projet = @years[year][site][projet] %>
-            <tr class="<%= projet[:color] %>">
-              <td>
-                <% if (Budget::Investment.find(projet[:id]) rescue nil) != nil %>
-                    <%= link_to projet[:name], budget_investment_path(Budget.find(1), Budget::Investment.find(projet[:id])) %>
-                <% else %>
-                    <%= projet[:name] %>
-                <% end %>
-              </td>
-              <td><%= projet[:cost] %></td>
-              <td>
-                <% case projet[:step] %>
-                <% when "En préparation" %>
-                    <i class="fas fa-battery-empty" aria-hidden="true"></i><p>En préparation</p>
-                <% when "En cours" %>
-                    <i class="fas fa-battery-half" aria-hidden="true"></i><p>En cours</p>
-                <% when "Réalisé" %>
-                    <i class="fas fa-battery-full" aria-hidden="true"></i><p>Réalisé</p>
-                <% else %>
-                    <%= projet[:step] %><i class="fas fa-battery-slash" aria-hidden="true"></i><p>Status inconnu</p>
-                <% end %>
-              </td>
-              <td>status</td>
-            </tr>
-
-      <% end %>
-      </table>
-    <% end %>
-<% end %>
-<%= @results %>
