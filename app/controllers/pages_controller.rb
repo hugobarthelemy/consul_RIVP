@@ -20,10 +20,6 @@ class PagesController < ApplicationController
   def live_results
     session = GoogleDrive::Session.from_config("secrets.yml")
     file = session.spreadsheet_by_key("1vrNdNlPyFRyhGDdJ9c4o6THUumyC2z4BYtfiNcRp0c0").worksheets[0]
-    # CSV.foreach(file, :headers => true) do |row|
-    #   @results.push(project_ligne(row))
-    # end
-    # @results = {}
     years = {}
     file.rows.each do |row|
       next if row == 0
@@ -36,28 +32,10 @@ class PagesController < ApplicationController
 
         year[ligne[:site]] = site
       years[ligne[:year]] = year
-
-
-
-      #site[ligne[:site]] = site
-      # @results << ligne
     end
     @years = years
     @results = years
-    # @results = file
-
-    # @results = []
-    # file = File.expand_path('../../../../consul/app/assets/doc/results.csv', __FILE__)
-    # CSV.foreach(file, :headers => true) do |row|
-    #   @results.push(project_ligne(row))
-    # end
-    # render :results
   end
-
-  years = { "2017" => { "site_1" => { "2017" => 10, "Jim Doe" => 6 },
-                        "site 2" => { "2017" => 10, "Jim Doe" => 6 }
-                      }
-          }
 
   private
 

@@ -24,7 +24,7 @@
             <tr class="<%= projet[:color] %>">
               <td>
                 <% if (Budget::Investment.find(projet[:id]) rescue nil) != nil %>
-                    <%= link_to projet[:name], budget_investment_path(Budget.find(1), Budget::Investment.find(result[:id])) %>
+                    <%= link_to projet[:name], budget_investment_path(Budget.find(1), Budget::Investment.find(projet[:id])) %>
                 <% else %>
                     <%= projet[:name] %>
                 <% end %>
