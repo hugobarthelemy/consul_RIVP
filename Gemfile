@@ -65,6 +65,7 @@ gem 'browser'
 gem 'turnout', '~> 2.4.0'
 gem 'redcarpet'
 gem 'pry-byebug'
+gem 'google_drive'
 
 # Slack notification
 gem "slack-notifier"
