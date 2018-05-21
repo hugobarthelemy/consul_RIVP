@@ -327,6 +327,7 @@ Rails.application.routes.draw do
   # static pages
   get '/blog' => redirect("http://blog.consul/")
   get 'results' => "pages#results"
+  get 'live_results' => "pages#live_results"
   resources :pages, path: '/', only: [:show, :results]
 
 end
