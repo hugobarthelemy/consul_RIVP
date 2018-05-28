@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     head 404
   end
 
-  def results
+  def old_results
     @results = []
     file = File.expand_path('../../../../consul/app/assets/doc/results.csv', __FILE__)
     CSV.foreach(file, :headers => true) do |row|
@@ -17,7 +17,7 @@ class PagesController < ApplicationController
     end
   end
 
-  def live_results
+  def results
     session = GoogleDrive::Session.from_config("secrets.yml")
     file = session.spreadsheet_by_key("1vrNdNlPyFRyhGDdJ9c4o6THUumyC2z4BYtfiNcRp0c0").worksheets[0]
     years = {}
