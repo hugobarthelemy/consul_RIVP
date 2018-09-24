@@ -1,5 +1,5 @@
 <div class="home">
-<% @budget = Budget.find(1)%>
+<% @budget = Budget.find(2)%>
 <% case @budget.phase %>
 <% when "accepting" %>
   <% banner_color = "background-1" %>
@@ -65,11 +65,14 @@
      <div class="row">
         <% if @budget.phase == "finished" %>
           <p><strong>Actu ! Les résultats du budget participatif de la RIVP sont disponibles !</strong></p>
-          <div class="btn-results text-center">
+          <div class="btn-results text-center" style="margin-left: 3rem">
               <%= link_to "Consulter les résultats 2018 et l'avancée des projets votés en 2017", results_path, class: "button" %>
           </div>
         <% else %>
           <p><strong>ACTU ! Les propositions sont en cours d'étude. Rendez-vous en septembre pour le vote.</strong></p>
+           <div class="btn-results text-center" style="margin-left: 3rem">
+             <%= link_to "Consultez l'avancée des projets votés en 2017", results_path, class: "button" %>
+           </div>
         <% end %>
      </div>
    </div>
@@ -149,11 +152,11 @@
   <h1>Consultez les propositions des différents sites</h1>
   <div class="row margin-top show-for-medium ">
     <div class="medium-12 column show-for-medium text-left point-relatif" style="padding-bottom: 60px">
-      <%= image_tag "custom/citymap2.png" %>
+      <%= image_tag "custom/citymap2018.png" %>
     </div>
     <div id="select-district" class="large-3 medium-6 column select-district list-group point-absolu">
       <div class="row">
-        <% Budget.find(1).headings.each_slice(12) do |slice| %>
+        <% Budget.find(2).headings.each_slice(12) do |slice| %>
           <div class="small-12 medium-12 column end ">
             <% slice.each do |heading| %>
               <span id="<%= dom_id(heading) %>"
@@ -161,7 +164,7 @@
                 <%= link_to heading.name,
                             budget_investments_path(heading_id: heading.id,
                                                     unfeasible: params[:unfeasible],
-                                                    budget_id: 1),
+                                                    budget_id: 2),
                             data: { no_turbolink: true } %><br>
               </span>
             <% end %>
@@ -176,7 +179,7 @@
   <div class="show-for-small-only">
     <div id="select-district" class="small-12 medium-3 column select-district list-group">
       <div class="row">
-        <% Budget.find(1).headings.each_slice(12) do |slice| %>
+        <% Budget.find(2).headings.each_slice(12) do |slice| %>
           <div class="small-12 medium-12 column end ">
             <% slice.each do |heading| %>
               <span id="<%= dom_id(heading) %>"
@@ -184,7 +187,7 @@
                 <%= link_to heading.name,
                             budget_investments_path(heading_id: heading.id,
                                                     unfeasible: params[:unfeasible],
-                                                    budget_id: 1),
+                                                    budget_id: 2),
                             data: { no_turbolink: true } %><br>
               </span>
             <% end %>
@@ -194,10 +197,64 @@
     </div>
 
     <div class="small-12 column">
-      <%= image_tag "custom/citymap.png" %>
+      <%= image_tag "custom/citymap2018.png" %>
+    </div>
+  </div>
+  <h1>Consultez l'avancée des projets votés en 2017 site par site</h1>
+  <div class="row">
+    <div class="btn-results text-center" style="margin-left: 3rem">
+      <%= link_to "Consultez l'avancée de l'ensemble des projets votés en 2017", results_path, class: "button" %>
+    </div>
+  </div>
+  <div class="row margin-top show-for-medium ">
+    <div class="medium-12 column show-for-medium text-left point-relatif" style="padding-bottom: 60px">
+      <%= image_tag "custom/citymap2.png" %>
+    </div>
+    <div id="select-district" class="large-3 medium-6 column select-district list-group point-absolu">
+      <div class="row">
+        <% Budget.find(1).headings.each_slice(12) do |slice| %>
+            <div class="small-12 medium-12 column end ">
+              <% slice.each do |heading| %>
+              <span id="<%= dom_id(heading) %>"
+                    class="<%= css_for_ballot_heading(heading) %> list-group-item">
+                <%= link_to heading.name,
+                            budget_investments_path(heading_id: heading.id,
+                                                    unfeasible: params[:unfeasible],
+                                                    budget_id: 1),
+                            data: { no_turbolink: true } %><br>
+              </span>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="show-for-small-only">
+    <div id="select-district" class="small-12 medium-3 column select-district list-group">
+      <div class="row">
+        <% Budget.find(1).headings.each_slice(12) do |slice| %>
+            <div class="small-12 medium-12 column end ">
+              <% slice.each do |heading| %>
+              <span id="<%= dom_id(heading) %>"
+                    class="<%= css_for_ballot_heading(heading) %> list-group-item">
+                <%= link_to heading.name,
+                            budget_investments_path(heading_id: heading.id,
+                                                    unfeasible: params[:unfeasible],
+                                                    budget_id: 1),
+                            data: { no_turbolink: true } %><br>
+              </span>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="small-12 column">
+      <%= image_tag "custom/citymap2.png" %>
     </div>
   </div>
 
 </div>
-
-

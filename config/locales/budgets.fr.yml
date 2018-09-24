@@ -108,43 +108,43 @@ fr:
       steps_cards:
         accepting:
           title: "Déposez vos idées"
-          dates: "fin mars - 30 juin"
+          dates: "du 3 avril au 15 juin"
           description: "Participez aux réunions en pied d’immeuble et déposez vos idées sur la plateforme."
           more_info: "Plus d'information"
           img: custom/accepting.svg
           name: accepting
         reviewing:
           title: Enrichissez les autres
-          dates: fin mars - 30 juin
+          dates: du 3 avril au 15 juin
           description: "Rejoignez les ateliers de co-construction sur le terrain et commentez les idées de vos voisins."
           more_info: "Plus d'information"
           img: custom/reviewing.svg
           name: reviewing
         selecting:
           title: Soutenez les meilleures
-          dates: fin mars - 30 juin
+          dates: du 3 avril au 15 juin
           description: "Accédez à toutes les idées des locataires et soutenez celles qui vous plaisent."
           more_info: "Plus d'information"
           img: custom/selecting.svg
           name: selecting
         valuating:
           title: Etude des projets
-          dates: juillet - mi-septembre
+          dates: 4 juillet
           description: "Examen de la faisabilité et du coût des projets par une commission organisée par COPAS."
           more_info: "Plus d'information"
           img: custom/valuating.svg
           name: valuating
         balloting:
           title: Votez en ligne ou par papier
-          dates: du 20 au 30 septembre
+          dates: du 8 au 23 septembre
           description: "Votez pour les projets que vous préférez dans la limite de l’enveloppe du budget participatif."
           more_info: "Plus d'information"
           img: custom/balloting.svg
           name: balloting
         finished:
           title: Annonce des résultats
-          dates: 5 octobre
-          description: "Les projets retenus seront communiqués à tous et mis en œuvre par les lauréats en 2018."
+          dates: 24 septembre
+          description: "Les projets retenus seront communiqués à tous et mis en œuvre par les lauréats en 2019."
           more_info: "Plus d'information"
           img: custom/finished.svg
           name: finished

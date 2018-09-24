@@ -1,4 +1,7 @@
 namespace :db do
+  task prod_seed_bp_rivp_2018: :environment do
+    load(Rails.root.join("db", "prod_seed_bp_rivp_2018.rb"))
+  end
   desc "Resets the database and loads it from db/dev_seeds.rb"
   task dev_seed: :environment do
     load(Rails.root.join("db", "dev_seeds.rb"))

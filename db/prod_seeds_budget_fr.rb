@@ -117,7 +117,7 @@ tags = ['Cadre de vie', 'Solidarité', 'Lien social', 'Micro aménagements']
 
 # tags = ['Solidarité et cohésion sociale', 'Propreté', 'Environnement', 'Cadre de vie', 'Economie', 'Education jeunesse', 'Sport', 'Santé', 'Culture et Patrimoine'] # tag de la mairie de Paris
 tags.each do |tag|
-  ActsAsTaggableOn::Tag.create!(name:  tag, featured: true, kind: "category")
+  ActsAsTaggableOn::Tag.create!(name:  tag, kind: "category")
 end
 
 puts "Creating Budgets"
