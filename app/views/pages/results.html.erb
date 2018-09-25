@@ -19,6 +19,8 @@
                   <% projet = @years[year][site][projet] %>
                   <tr style="background-color:
                     <% case projet[:step] %>
+                      <% when "Gagné" %>
+                        #39CCCC
                       <% when "En préparation" %>
                         #FF4136
                       <% when "En cours" %>
@@ -31,7 +33,8 @@
                   ">
                     <td>
                       <% if (Budget::Investment.find(projet[:id]) rescue nil) != nil %>
-                          <%= link_to projet[:name], budget_investment_path(Budget.find(1), Budget::Investment.find(projet[:id])) %>
+                          <% budget_id = @years[year].to_i - 2016 %>
+                          <%= link_to projet[:name], budget_investment_path(Budget.find(budget_id), Budget::Investment.find(projet[:id])) %>
                       <% else %>
                           <%= projet[:name] %>
                       <% end %>
@@ -39,6 +42,8 @@
                     <td class=""win"><%= projet[:cost] %></td>
                     <td>
                       <% case projet[:step] %>
+                      <% when "Gagné" %>
+                          <i class="fas fa-trophy" aria-hidden="true"></i>  Gagné
                       <% when "En préparation" %>
                           <i class="fas fa-battery-empty" aria-hidden="true"></i>  En préparation
                       <% when "En cours" %>
