@@ -24,7 +24,7 @@ class PagesController < ApplicationController
     file.rows.each do |row|
       next if row == 0
       ligne = project_ligne_2(row)
-      next unless ligne[:win] == "Lauréat"
+      next unless ["Lauréat", "Non lauréat"].include?(ligne[:win])
 
       year = years[ligne[:year]] || {}
         site = year[ligne[:site]] || {}
@@ -33,6 +33,7 @@ class PagesController < ApplicationController
         year[ligne[:site]] = site
       years[ligne[:year]] = year
     end
+
     @years = years
     @results = years
   end

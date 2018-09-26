@@ -52,6 +52,8 @@
                           <i class="fas fa-battery-full" aria-hidden="true"></i>  Réalisé
                       <% when "Non réalisé"  %>
                           <i class="fas fa-times" aria-hidden="true"></i> Non réalisé
+                      <% when "Perdu"  %>
+                          <i class="fas fa-times" aria-hidden="true"></i> Perdu
                       <% else %>
                           <%= projet[:step] %><i class="fas fa-battery-slash" aria-hidden="true">  Status inconnu
                       <% end %>
